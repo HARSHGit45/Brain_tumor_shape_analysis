@@ -1,0 +1,59 @@
+<!--<html lang="en">
+<head>
+   
+    <title>convexity</title>
+</head>
+<body>
+    <form>
+        <label for="fileInput">Choose a file:</label>
+        <input type="file" id="fileInput" name="fileInput">
+        <button type="submit">Submit</button>
+        <br>
+        <label for="number">Enter slice number that is to be analyzed</label>
+        <input type="number" id="numberInput" >
+        <button type="submit">Analyzed</button>
+    </form>
+    
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convexity Analysis</title>
+</head>
+<body>
+    <h1>Convexity Analysis</h1>
+    
+    <form id="analyzeForm"  enctype="multipart/form-data">
+        <label for="segFile">Upload SEG.nii file:</label>
+        <input type="file" id="segFile" name="seg_file" accept=".nii, .nii.gz" required><br><br>
+        
+        <label for="sliceNumber">Enter slice number:</label>
+        <input type="number" id="sliceNumber" name="slice_number" required><br><br>
+
+        <button type="button" onclick="analyzeSlice()">Analyze</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function analyzeSlice() {
+            var form = document.getElementById('analyzeForm');
+            var formData = new FormData(form);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    document.getElementById('result').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>
