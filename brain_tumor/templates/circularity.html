@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circularity Analysis</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url('/static/bt1.jpeg');
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            width: calc(100% - 40px);
+            max-width: 500px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        input[type="file"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Includes padding and border in the element's width */
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            width: calc(100% - 40px);
+            max-width: 500px;
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            color: #333;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Circularity Analysis</h1>
+    
+    <form id="analyzeForm" action="/analyze_circularity" method="POST" enctype="multipart/form-data">
+        <label for="segFile">Upload SEG.nii file:</label>
+        <input type="file" id="segFile" name="seg_file" accept=".nii, .nii.gz" required><br>
+        
+        <label for="sliceNumber">Enter slice number:</label>
+        <input type="number" id="sliceNumber" name="slice_number" required><br>
+
+        <button type="button" onclick="analyzeSliceforcircularity()">Analyze</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function analyzeSliceforcircularity() {
+            var form = document.getElementById('analyzeForm');
+            var formData = new FormData(form);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/analyze_circularity', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    document.getElementById('result').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>

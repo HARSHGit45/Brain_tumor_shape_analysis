@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Shape Analysis - Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url('/static/bt1.jpeg');        
+                margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #eb0a4d;
+        }
+        p, li {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Brain Tumor Shape Analysis</h1>
+
+
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="/static/pccoe.jpeg" alt="PCCOE Logo" style="max-width: 200px;"> 
+        </div>
+
+        <p><strong>Project by:</strong> Pimpri Chinchwad College of Engineering, Pune</p>
+        <p><strong>Guides:</strong> Prof. Sonal Gore Mam, Prof. Sanjay Talbar Sir</p>
+        <p><strong>Team Members:</strong> Harshal Mali, Anjali Auti, Ankush Banne, Anushka Patil</p>
+        <hr>
+        <h2>About the Project</h2>
+        <p>
+            The Brain Tumor Shape Analysis project aims to improve brain tumor diagnosis and
+            treatment planning by analyzing tumor shapes in detail. Attributes like circularity, convexity,
+            eccentricity, solidity, and rectangularity are carefully examined to provide healthcare
+            professionals with a better understanding of tumor morphology.
+        </p>
+        <h2>Shape Features Used</h2>
+        <ul>
+            <li><strong>Convexity:</strong> A measure of the curvature of the tumor shape.Convexity is defined as the ratio of the contour area to the convex hull area. If C represents the contour area and H represents the convex hull areat
+            <br>he formula for convexity can be expressed as: <strong> CONTOUR_AREA/CONVEX_HULL_AREA</strong></li>
+            <li><strong>Rectangularity:</strong> Indicates how closely the tumor shape fits into a rectangle. Rectangularity is calculated by the ratio of the contour area to the area of the bounding rectangle. If A is the area of the tumor and R is the area of the bounding rectangle, the formula for rectangularity is: <strong>CONTOUR_AREA / BOUNDING_RECTANGLE_AREA</strong></li>
+            <li><strong>Eccentricity:</strong> Describes how much a tumor shape deviates from being circular. Eccentricity of an ellipse is calculated using the lengths of the major and minor axes. The formula for eccentricity is: <strong>sqrt(1 - (MINOR_AXIS^2 / MAJOR_AXIS^2))</strong></li>
+            <li><strong>Solidity:</strong> Measures the density of the shape by comparing the area of the tumor to the area of its convex hull. Solidity is defined as the ratio of the contour area to its convex hull area. If C represents the contour area and H represents the convex hull area, the formula for solidity is: <strong>CONTOUR_AREA / CONVEX_HULL_AREA</strong></li>
+            <li><strong>Circularity:</strong> A measure of how close the shape is to a perfect circle, using the area and the perimeter of the shape. The formula for circularity is: <strong>(4 * PI * AREA) / (PERIMETER^2)</strong></li>
+        </ul>
+        <h2>About the Dataset</h2>
+        <p>
+            The analyses use the BraTS 2021 dataset, consisting of high-quality NIfTI files which capture detailed brain tumor imaging.
+        </p>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circularity Analysis Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        h1 {
+            color :crimson ;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        p {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            width: calc(100% - 40px);
+            max-width: 500px;
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Circularity Analysis Result</h1>
+    <p>Circularity for Slice {{ slice_number }}: {{ circularity }}</p>
+  
+    <p>Prediction: {{ prediction }}</p> 
+    <img src="{{ plot_filename }}" alt="Plot of Analysis Result">
+</body>
+</html>
